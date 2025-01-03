@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  frontend:
+    build:
+      context: ./frontend  # Zakłada, że Dockerfile znajduje się w folderze frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app  # Mapowanie kodu źródłowego
+    ports:
+      - "3000:3000"  # Mapowanie portów
+    container_name: potegaapp-frontend  # Nazwa kontenera
+    environment:
+      - NODE_ENV=production  # Możesz zmienić na dev, jeśli chcesz środowisko deweloperskie
